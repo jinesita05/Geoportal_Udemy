@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geoportal - Sistema de Información Geográfica</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Geoportal SIG</span>
+      </div>
+      
+      <div class="search-box">
+        <input id="search-input" placeholder="Buscar barrio..." />
+        <i class="fas fa-search search-icon"></i>
+        <div id="search-results"></div>
+      </div>
+      
+      <button class="mode-toggle" id="distance-mode-btn">
+        <i class="fas fa-ruler-combined"></i>
+        Modo Medición de Distancia
+      </button>
+      
+      <div id="barrio-info"></div>
+      <div id="distance-info"></div>
+      
+      <div class="section-title">
+        <i class="fas fa-map"></i>
+        Mapa Base
+      </div>
+      
+      <div class="basemap-selector">
+        <div class="basemap-options">
+          <div class="basemap-option active" data-basemap="osm">
+            <i class="fas fa-map"></i>
+            <div>Estándar</div>
+          </div>
+          <div class="basemap-option" data-basemap="satellite">
+            <i class="fas fa-satellite"></i>
+            <div>Satélite</div>
+          </div>
+          <div class="basemap-option" data-basemap="topo">
+            <i class="fas fa-mountain"></i>
+            <div>Topográfico</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-title">
+        <i class="fas fa-layer-group"></i>
+        Capas Disponibles
+      </div>
+      
+      <div id="layers-container"></div>
+    </div>
+    
+    <div class="map-container">
+      <div id="map"></div>
+      <div id="status"></div>
+      <div class="legend" id="legend">
+        <h4>
+          <i class="fas fa-list"></i>
+          Leyenda
+        </h4>
+        <div id="legend-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
