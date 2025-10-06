@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geoportal - Indicadores Mundiales</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-top">
+        <h1>🌍 Geoportal - Indicadores Mundiales</h1>
+        <div class="info">Banco Mundial • PostGIS Dashboard</div>
+      </div>
+      <div class="header-stats">
+        <div class="header-stat-card">
+          <div class="header-stat-label">📊 Total Países</div>
+          <div class="header-stat-value" id="headerTotalPaises">-</div>
+        </div>
+        <div class="header-stat-card">
+          <div class="header-stat-label">🌐 Población Global</div>
+          <div class="header-stat-value" id="headerPoblacionTotal">-</div>
+        </div>
+        <div class="header-stat-card">
+          <div class="header-stat-label">💰 PIB Global</div>
+          <div class="header-stat-value" id="headerPibTotal">-</div>
+        </div>
+        <div class="header-stat-card">
+          <div class="header-stat-label">📈 Esperanza Vida Prom.</div>
+          <div class="header-stat-value" id="headerEsperanzaVida">-</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div id="status">Cargando datos...</div>
+      
+      <div class="controls">
+        <label>📊 Variable a visualizar</label>
+        <select id="variableSelect">
+          <option value="electr_renov_2021">Electricidad Renovable 2021 (%)</option>
+          <option value="esp_vida_2023">Esperanza de Vida 2023 (años)</option>
+          <option value="poblacion_2024">Población 2024</option>
+          <option value="co2_percap_2023">CO2 per cápita 2023 (ton)</option>
+          <option value="desempleo_2024">Desempleo 2024 (%)</option>
+          <option value="homicidios_2021">Homicidios 2021 (por 100k)</option>
+          <option value="pib_usd_2024">PIB USD 2024</option>
+          <option value="migracion_neta_2024">Migración Neta 2024</option>
+        </select>
+      </div>
+
+      <div class="stats" id="statsPanel">
+        <div class="stat-item">
+          <span class="stat-label">Países:</span>
+          <span class="stat-value" id="totalPaises">-</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Promedio:</span>
+          <span class="stat-value" id="promedio">-</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Máximo:</span>
+          <span class="stat-value" id="maximo">-</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Mínimo:</span>
+          <span class="stat-value" id="minimo">-</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="map-container">
+        <div id="map"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>📈 Top 10 Países</h3>
+          <div class="chart-container"><canvas id="chartTop10"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🌐 Distribución por Región</h3>
+          <div class="chart-container"><canvas id="chartRegion"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>📊 Comparativa Variables</h3>
+          <div class="chart-container"><canvas id="chartComparativa"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
